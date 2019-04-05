@@ -14,19 +14,8 @@
 </head>
 <body>
     <?
-        $calc = new calculator;
-        echo $calc->getResult(2,'wer','+');
-        echo "<pre>";
-        echo $calc->getResult(2,2,'-');
-        echo "<pre>";
-        echo $calc->getResult(2,2,'*');
-        echo "<pre>";
-        echo $calc->getResult(0,0,'/');
-        echo "<pre>";
-        echo $calc->getResult(100,25,'%');
-        echo "<pre>";
-        echo $calc->getResult(2,2,'^');
-        echo "<pre>";
+        $calc = new Calculator;
+        
         echo $calc->MC();
         echo "<pre>";
         echo $calc->MS(5);
@@ -34,6 +23,20 @@
         echo $calc->MPlus(5);
         echo "<pre>";
         echo $calc->MMinus(3);
+        echo "<pre>";
+        echo $calc->Plus(25,23);
+        echo "<pre>";
+        echo $calc->Minus(25,23);
+        echo "<pre>";
+        echo $calc->Multiplicated(25,23);
+        echo "<pre>";
+        echo $calc->Devine(10,2);
+        echo "<pre>";
+        echo $calc->Percent(100,25);
+        echo "<pre>";
+        echo $calc->Equally(25,25);
+        echo "<pre>";
+        echo $calc->degreeOf(10,2);
         echo "<pre>";
     ?>
 </body>

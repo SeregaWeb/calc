@@ -12,56 +12,92 @@ class Calculator
         $this->setB(0);
         $this->setM(0);
     }
+
     function Plus($a,$b)
     {
         $this->setA($a);
         $this->setB($b);
-
-        return $this->getA() + $this->getB();
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            return $this->getA() + $this->getB();
+        }
     }
-    function checkopration($oprator)
+
+    function Minus($a,$b)
     {
-        switch($oprator)
-        {
-            case '+':
-            return $this->a + $this->b;
-            break;
+        $this->setA($a);
+        $this->setB($b);
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            return $this->getA() - $this->getB();
+        }
+    }
 
-            case '-':
-            return $this->a - $this->b;
-            break;
+    function Multiplicated($a,$b)
+    {
+        $this->setA($a);
+        $this->setB($b);
 
-            case '*':
-            return $this->a * $this->b;
-            break;
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            return $this->getA() * $this->getB();
+        }
+    }
 
-            case '/':
-            if($this->b == 0){
-               return DIVIDE_BY_ZERO;
-            }
-            return $this->a / $this->b;
-            break;
+    function Devine($a,$b)
+    {
+        $this->setA($a);
+        $this->setB($b);
+        if($this->b == 0){
+            return DIVIDE_BY_ZERO;
+        }
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            return $this->getA() / $this->getB();
+        }
+    }
 
-            case '%':
-                return  $this->a * $this->b / 100;
-            break;
+    function Percent($a,$b)
+    {
+        $this->setA($a);
+        $this->setB($b);
+        
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            return $this->getA() * $this->getB() / 100;
+        }
+    }
 
-            case '=':
-                if($this->a == $this->b){
+    function Equally($a,$b)
+    {
+        $this->setA($a);
+        $this->setB($b);
+        
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            if($this->a == $this->b){
                 return 'true';
-                }
+            }
                 return 'false';
-            break;
+        }
+    }
 
-            case '^':
-                if($this->a < 0 && $this->b < 0){
-                    return UNCORECT_NUMBER;
-                }
-                return pow($this->a,$this->b);
-            break;
-            default:
-            return "Sorry No command found";
-        }   
+    function degreeOf($a,$b)
+    {
+        $this->setA($a);
+        $this->setB($b);
+        
+        if($this->getA() == UNCORECT_NUMBER ||  $this->getB()  == UNCORECT_NUMBER ){
+            return UNCORECT_NUMBER;
+        }else{
+            return pow($this->a,$this->b);
+        }
     }
 
     function getA()
@@ -78,23 +114,23 @@ class Calculator
         return $this->m;
     }
 
-    private function setB($a)
+    private function setA($a)
     {
             $a = (int)$a;
             if(is_int($a)){
                 $this->a = $a;
             }else{
-                $this->a = 0;
+                $this->a = UNCORECT_NUMBER;
             }
     }
 
-    private function setA($b)
+    private function setB($b)
     {
             $b = (int)$b;
             if(is_int($b)){
                 $this->b = $b;
             }else{
-                $this->a = 0;
+                $this->b = UNCORECT_NUMBER;
             }
     }
 
@@ -104,18 +140,10 @@ class Calculator
             if(is_int($m)){
                 $this->m = $m;
             }else{
-                $this->a = 'ERROR not namber';
+                $this->a = UNCORECT_NUMBER;
             }
     }
     
-    public function getResult($a,$b,$c)
-    {
-        $this->setA($a);
-        $this->setB($b);
-
-        return $this->  checkopration($c);
-    }
-
     public function MC()
     {
         $this->setM(0);
@@ -151,6 +179,5 @@ class Calculator
         }
         return $this->getM();
     }
-
    
 }
